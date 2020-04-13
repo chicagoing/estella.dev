@@ -1,0 +1,6 @@
+- name: 'gcr.io/estellagonzalez.com/npm:current'
+  args: ['install']
+  dir: '_site'
+- name: 'gcr.io/estellagonzalez.com/npm:current'
+  args: ['install']
+  dir: '_site'
