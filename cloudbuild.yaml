@@ -1,6 +1,4 @@
-- name: 'gcr.io/cloud-builders/npm'
+steps:
+- name: node
+  entrypoint: npm
   args: ['install']
-  dir: '_site'
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['build ']
-  dir: '_site'
