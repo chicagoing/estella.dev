@@ -5,3 +5,5 @@ steps:
 - name: node
   entrypoint: npm
   args: ['run', 'build']
+ - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rsync", "-r", "-c", "-d", "_site", "gs://www.estellagonzalez.com"]
