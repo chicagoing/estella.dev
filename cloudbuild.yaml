@@ -1,6 +1,6 @@
-- name: 'gcr.io/estella-website/npm:current'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['install']
   dir: '_site'
-- name: 'gcr.io/estella-website/npm:current'
-  args: ['install']
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['build ']
   dir: '_site'
