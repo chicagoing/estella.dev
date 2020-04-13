@@ -1,0 +1,27 @@
+{
+  "name": "estella.dev",
+  "version": "1.0.0",
+  "description": "Personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chicagoing/estella.dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chicagoing/estella.dev/issues"
+  },
+  "homepage": "https://github.com/chicagoing/estella.dev#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0"
+  },
+  "dependencies": {
+    "clean-css": "^4.2.3",
+    "html-minifier": "^4.0.0"
+  }
+}
