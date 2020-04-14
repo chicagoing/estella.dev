@@ -1,14 +1,15 @@
-const CleanCSS = require("clean-css");
-const htmlmin = require("html-minifier");
+const cleanCSS = require("clean-css");
+const htmlMin = require("html-minifier");
+const fs = require('fs');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
+    return new cleanCSS({}).minify(code).styles;
   });
 
-  eleventyConfig.addTransform("htmlmin", function(content, outputPath) {
+  eleventyConfig.addTransform("htmlMin", function(content, outputPath) {
     if(outputPath.endsWith(".html")) {
-      let minified = htmlmin.minify(content, {
+      let minified = htmlMin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true
