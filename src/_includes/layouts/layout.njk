@@ -8,7 +8,8 @@
   <meta name="author" content="Estella Madison">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link href="//fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap">
 
   <!-- capture the CSS content as a Nunjucks variable -->
   {% set css %}
@@ -20,6 +21,26 @@
   </style>  
 </head>
 <body>
+  <div class="container container--nav">
+    <nav class="nav">
+      <a class="nav__link nav__link--current" href="#">Work</a>
+      <a class="nav__link" href="#">Writing</a>
+    </nav>
+  </div>
+
   {{ content | safe }}
+
+  <footer class="footer">
+    <div class="container container--footer">
+      <div class="content content--quaternary">
+        <div class="content__col content__col--quaternary">
+          <p class="copyright">Copyright © 2020 Estella Madison. All rights reserved.</p>
+        </div>
+        <div class="content__col content__col--quaternary">
+          
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
