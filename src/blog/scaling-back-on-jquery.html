@@ -1,0 +1,55 @@
+---
+layout: layouts/layout.njk
+title: Scaling back on jQuery and other JavaScript libraries
+---
+
+<article class="article">
+  <h1 class="article__head">{{title}}</h1>
+  <p><time datetime="2013-07-05T21:35:00-07:00">July 5, 2013</time>I'm observing a trend in blogs and presentations: scale back on libraries like jQuery.</p>
+  <p>In his popular presentation called "<a href="http://www.slideshare.net/nzakas/enough-withthejavascriptalready">Enough With The JavaScript Already!</a>," Nicolas Zakas points out that JavaScript is bloating our bandwidth, and we're not even using it all. Evan Hahn reminds us of some of <a href="http://evanhahn.com/doing-without-jquery/">jQuery's equivalent native DOM methods</a>. Chris Love gently states, "<a href="http://professionalaspnet.com/archive/2013/04/14/Why-Its-Time-to-Sunset-jQuery.aspx">In many ways thanks to jQuery, jQuery itself is no longer needed</a>."</p>
+  <p>I was curious about how jQuery and Zepto stack up against native DOM methods. Obviously, the native methods will perform better, but I was surprised at how much better. In full front-end applications like my own website, this can actually make a difference.</p>
+  <p>First I tested fetching an element by ID:</p>
+
+  <table><thead>
+  <tr><th></th><th>getElementById()</th><th>querySelect()</th><th>$("#")</th><th>Zepto $("#")</th></tr>
+  </thead> <tbody>
+  <tr><td>Chrome</td><td class="highlight">6ms</td><td>35ms</td><td>110ms</td><td>167ms</td></tr>
+  <tr><td>Firefox</td><td>13ms</td><td>90ms</td><td>505ms</td><td>297ms</td></tr>
+  <tr><td>Safari</td><td>17ms</td><td>176ms</td><td>310ms</td><td>945ms</td></tr>
+  <tr><td>IE9</td><td>47ms</td><td>2745ms</td><td>177ms</td><td>&times;</td></tr>
+  <tr><td>IE10</td><td>55ms</td><td>4023ms</td><td>132ms</td><td>&times;</td></tr>
+  </tbody> <caption>Performance results for fetching an element by ID.</caption> </table>
+
+  <p>Then I tested fetching elements by class name (I didn't test Zepto in IE here):</p>
+
+  <table>
+    <thead>
+      <tr><th></th><th>getElementByClassName()</th><th>querySelectAll()</th><th>$(".")</th><th>Zepto $(".")</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Chrome</td><td class="highlight">7ms</td><td>1515ms</td><td>169ms</td><td>377ms</td></tr>
+      <tr><td>Firefox</td><td>18ms</td><td>1857ms</td><td>802ms</td><td>475ms</td></tr>
+      <tr><td>Safari</td><td>19ms</td><td>1451ms</td><td>920ms</td><td>993ms</td></tr>
+      <tr><td>IE9</td><td>96ms</td><td>4142ms</td><td>423ms</td><td>&times;</td></tr>
+      <tr><td>IE10</td><td>68ms</td><td>4029ms</td><td>309ms</td><td>&times;</td></tr>
+    </tbody>
+    <caption>Performance results for fetching an element by CSS class name.</caption>
+  </table>
+
+  <p>I was surprised to see how badly the native <code>document.querySelect()</code> and <code>document.querySelectAll()</code> methods faired. I'd expect performance for these to improve over time though.</p>
+  <p>It's unclear why Zepto was so much slower for some tests. I expected it to do better than jQuery. I'll have to dig into this one.</p>
+  <h2 class="article__head-secondary">How did I measure performance?</h2>
+  <p>I used a very basic approach, executing each selector 10,000 times and taking advantage of the built-in <code>console.time</code> and <code>console.timeEnd</code> methods (I had to measure time manually for IE):</p>
+
+  <p>I can't imagine giving up jQuery just yet, but I would love to, for now, just use the Ajax and CSS APIs. And I'd also like to see Ember use native selectors more frequently.</p>
+
+  <aside>
+    <h2 class="aside-heading">Also read…</h2>
+    <ul>
+    <li>Nicolas Zakas' presentation titled <a href="http://www.slideshare.net/nzakas/enough-withthejavascriptalready">Enough with the JavaScript already!</a></li>
+    <li><a href="http://evanhahn.com/doing-without-jquery/">Doing without jQuery</a> by Evan Hahn</li>
+    <li><a href="http://professionalaspnet.com/archive/2013/04/14/Why-Its-Time-to-Sunset-jQuery.aspx">Why Its Time to Sunset jQuery</a> by Chris Love</li>
+    <li><a href="http://www.raymondcamden.com/index.cfm/2012/10/23/Stop-using-jQuery-all-the-time">Stop using jQuery!! (all the time...)</a> by Raymond Camden</li>
+    </ul>
+  </aside>
+</article>

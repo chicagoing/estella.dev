@@ -5,7 +5,7 @@
 
   <meta charset="utf-8">
   <meta name="description" content="Estella González Madison's personal website">
-  <meta name="author" content="Estella Madison">
+  <meta name="author" content="Estella González Madison">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
@@ -20,15 +20,36 @@
     {{ css | cssmin | safe }}
   </style>  
 </head>
-<body>
+<body{% if "/" == page.url %} class="page--home"{% endif %}>
   <div class="container container--nav">
-    <nav class="nav">
-      <a class="nav__link nav__link--current" href="#">Work</a>
-      <a class="nav__link" href="#">Writing</a>
-    </nav>
+    <div class="content content--quaternary">
+      {% if "/" == page.url %}
+      <div class="content__col content__col--quaternary"></div>
+      {% else %}
+      <header class="content__col content__col--quaternary">
+        <a class="link-home" aria-label="Go back to home page" href="/">estella</a>
+      </header>
+      {% endif %}
+      <div class="content__col content__col--quaternary">
+        <nav class="nav">
+          <a class="nav__link nav__link--current" href="#">Work</a>
+          <a class="nav__link" href="#">Writing</a>
+        </nav>
+      </div>
+    </div>
   </div>
 
-  {{ content | safe }}
+  {% if "/" == page.url %}
+  <header class="container header">
+    <h1>{{title}}</h1>
+    <h2>Engineering manager & UI-focused software engineer</h2>
+    <p class="header__p"><em>I write about my personal experiences and technical challenges</em></p>
+  </header>
+  {% endif %}
+
+  <main class="container">
+    {{ content | safe }}
+  </main>
 
   <footer class="footer">
     <div class="container container--footer">

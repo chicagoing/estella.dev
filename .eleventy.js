@@ -7,7 +7,6 @@ module.exports = function (eleventyConfig) {
     return new cleanCSS({}).minify(code).styles;
   });
 
-  eleventyConfig.addPassthroughCopy("src/blog");
   eleventyConfig.addPassthroughCopy("src/img");
 
   eleventyConfig.addTransform("htmlMin", function(content, outputPath) {

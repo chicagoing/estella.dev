@@ -29,7 +29,7 @@ a:focus {
 }
 
 h1 {
-  font-size: 3.5em;
+  font-size: 3.5rem;
   font-weight: bold;
   line-height: 1;
   margin: 0 0 .25em;
@@ -58,13 +58,16 @@ h5 {
   line-height: 1.1;
   margin: 0 0 .25em;;
 }
+p {
+  margin: 1em 0;
+}
 
 time {
   background: var(--color--bg--light-pink);
   font-size: .8em;
   font-weight: bold;
   margin-right: .5em;
-  padding: .15em .2em .1em 0;
+  padding: .15em .2em .1em;
   position: relative;
   text-transform: uppercase;
 }
@@ -110,19 +113,7 @@ p:first-child {
 }
 .nav__link:hover {
   text-decoration: underline;
-}/* 
-.nav__link--current:after {
-  content: '';
-  display: inline-block;
-  border-width: 7px;
-  border-color: transparent;
-  border-style: solid;
-  border-bottom-color: var(--color--secondary);
-  border-right-color: var(--color--secondary);
-  left: -18px;
-  top: 4px;
-  position: absolute;
-} */
+}
 
 .header {
   margin-top: 4em;
@@ -170,6 +161,18 @@ p:first-child {
 .content__col--quaternary:nth-child(2) {
   text-align: right;
 }
+.page--home .container--nav {
+  margin-top: 1.5625em;
+}
+.container--nav .content--quaternary {
+  margin: 0;
+}
+.container--nav .content {
+  align-items: baseline;
+}
+.container--nav .content__col {
+  padding: 0;
+}
 .content__link {
   text-decoration: none;
   transition: none;
@@ -210,7 +213,71 @@ p:first-child {
 }
 
 .article {
+  font-size: 1.2em;
   margin: 0 auto;
-  max-width: 50em;
+  max-width: 45rem;
   width: 80%;
+}
+.article__head {
+  font-size: 3rem;
+  line-height: 1.2;
+}
+.article__head-secondary {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 1.5em 0 1em;
+}
+
+.link-home {
+  font-size: 2em;
+  line-height: 1;
+  text-decoration: none;
+}
+.page--home .link-home {
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font: 200 .8em/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  min-width: 300px;
+  overflow: auto
+}
+thead {
+  border-bottom: 2px solid var(--color--primary);
+}
+th {
+  font-weight: 400;
+  overflow: hidden
+}
+tbody tr {
+  border-bottom: 1px solid var(--color--primary);
+}
+td, th {
+  padding: .25em 0;
+  text-align: center
+}
+td:first-child {
+  text-align: left
+}
+caption {
+  font-size: .9em;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: right;
+  margin-bottom: .5em
+}
+
+pre {
+  background: #ededed;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, "Lucida Console", Monaco, monospace;
+  font-size: 1rem;
+  line-height: 1;
+  margin: 1em 0;
+  max-width: 45rem;
+  overflow: auto;
+  padding: .5em;
+  width: 100%;
 }
