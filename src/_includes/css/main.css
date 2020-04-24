@@ -224,9 +224,14 @@ p:first-child {
   line-height: 1.2;
 }
 .article__head-secondary {
-  font-size: 1.3em;
+  font-size: 1.5em;
   font-weight: bold;
   margin: 1.5em 0 1em;
+}
+.article__head-tertiary {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 1.5em 0 .25em;
 }
 
 .link-home {
@@ -281,4 +286,8 @@ pre {
   overflow: auto;
   padding: .5em;
   width: 100%;
+}
+
+.list-two-col {
+  column-count: 2;
 }
