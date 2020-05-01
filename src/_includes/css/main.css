@@ -1,8 +1,9 @@
 :root {
   --color--primary: #353535;
   --color--primary--dark: #282828;
+  --color--primary--med: #858585;
   --color--primary--light: #a7a7a7;
-  --color--secondary: #805656;
+  --color--pink-dark: #805656;
   --color--bg--primary: #f7f7f7;
   --color--bg--light-pink: #efe7e7;
 
@@ -31,7 +32,7 @@ body {
 }
 
 a {
-  color: var(--color--secondary);
+  color: var(--color--pink-dark);
   transition: color 0.15s linear, outline 0.1s linear;
 }
 a:hover {
@@ -44,7 +45,11 @@ a:focus {
 
 hr {
   border: 0;
-  border-top: 1px solid var(--color--secondary);
+  border-top: 1px solid var(--color--pink-dark);
+}
+
+img {
+  width: 100%;
 }
 
 h1 {
@@ -89,7 +94,7 @@ p {
 
 time {
   background: var(--color--bg--light-pink);
-  color: var(--color--secondary);
+  color: var(--color--pink-dark);
   display: inline-block;
   font-size: .8em;
   font-weight: bold;
@@ -175,8 +180,8 @@ p:first-child {
 }
 .content__col--primary {
   background: none;
-  border-left: 1px solid var(--color--secondary);
-  border-top: 1px solid var(--color--secondary);
+  border-left: 1px solid var(--color--pink-dark);
+  border-top: 1px solid var(--color--pink-dark);
 }
 .content__col--secondary {
   /* TODO: make this functional? */
@@ -264,7 +269,7 @@ p:first-child {
   display: inline;
 }
 .list__item--tight:before {
-  color: var(--color--secondary);
+  color: var(--color--pink-dark);
   content: '•';
   display: inline-block;
   margin: 0 .4em;
@@ -384,7 +389,7 @@ pre {
       to top right, 
       var(--color--bg--light-pink) 50%, var(--color--bg--primary) 50%
     );
-  color: var(--color--secondary);
+  color: var(--color--pink-dark);
   content: attr(data-pullquote);
   display: block;
   font-size: 1.4em;
@@ -428,4 +433,22 @@ pre {
 }
 .readable {
   max-width: 40rem;
+}
+
+figcaption {
+  color: var(--color--primary--med);
+  font-size: .7em;
+  line-height: 1.1;
+  text-align: right;
+}
+
+.figure--right {
+  float: right;
+  margin-left: 1em;
+  width: 50%;
+}
+.figure--left {
+  float: left;
+  margin-right: 1em;
+  width: 50%;
 }
