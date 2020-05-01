@@ -18,9 +18,19 @@
   <!-- feed it through our cssmin filter to minify -->
   <style>
     {{ css | cssmin | safe }}
-  </style>  
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165269763-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date())
+    gtag('config', 'UA-165269763-1');
+  </script>
 </head>
 <body{% if "/" == page.url %} class="page--home"{% endif %}>
+  <a class="skip-link visually-hidden" href="#main">Skip to main content</a>
   <div class="container container--nav">
     <div class="content content--quaternary">
       {% if "/" == page.url %}
@@ -32,8 +42,8 @@
       {% endif %}
       <div class="content__col content__col--quaternary">
         <nav class="nav">
-          <a class="nav__link nav__link--current" href="#">Work</a>
-          <a class="nav__link" href="#">Writing</a>
+          <a class="nav__link nav__link--current" href="/work/">Work</a>
+          <a class="nav__link" href="/blog/">Writing</a>
         </nav>
       </div>
     </div>
@@ -42,7 +52,7 @@
   {% if "/" == page.url %}
   <header class="container header">
     <h1>{{title}}</h1>
-    <h2>Engineering manager & UI-focused software engineer</h2>
+    <h2 class="header__subhead">Engineering manager & UI-focused software engineer</h2>
     <p class="header__p"><em>I write about my personal experiences and technical challenges</em></p>
   </header>
   {% endif %}

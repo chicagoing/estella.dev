@@ -2,17 +2,11 @@
 layout: layouts/layout.njk
 title: Resources for new frontend engineers
 date: 2020-04-20
-tags:
-  - frontend development
----
-
-<article class="article">
-  <h1 class="article__head">{{title}}</h1>
+intro: |
   <p>
-    <time datetime="{{page.date}}">{% formatDate page.date %}</time>I'm fortunate to meet several
-    frontend engineers that are new to the role as professionals, recent grads (mostly from code
-    schools) and self-taught developers. As a result, I give a lot of tips on good habits to adopt
-    and suggestions on who to follow, what to read, and what to watch.
+    I'm fortunate to meet several frontend engineers that are new to the role as professionals, recent
+    grads (mostly from code schools) and self-taught developers. As a result, I give a lot of tips on
+    good habits to adopt and suggestions on who to follow, what to read, and what to watch.
   </p>
   <p>
     When I started my own career it was a different climate. Meetup didn't yet exist, events
@@ -20,34 +14,63 @@ tags:
     its own craft. It took me years to figure out what worked best for me to stay strong in a 
     competitive market in which I was an anomaly.
   </p>
-  <h2 class="article__head-secondary">Read read read</h2>
+tags:
+  - post
+  - frontend development resources
+  - learning
+---
+
+<article id="main" class="article readable">
+  <h1 class="article__head">{{title}}</h1>
+  <time datetime="{{date}}">{% formatDate date %}</time>
+  {{intro}}
+  <h2 class="article__head-secondary">Learn learn learn</h2>
   <p>
     When I moved to San Francisco, I lived 3 miles from my job but had a 45 minute commute.
     I used that opportunity to read one or two blog posts on frontend development a day on my phone
-    (using <a href="https://feedly.com/i/welcome">Feedly</a>). This is the best habit I adopted by
-    far. I grew so much as a frontend engineer and fell in love with my craft.
+    finding them via <a href="https://feedly.com/i/welcome">Feedly</a> or Twitter. Reading technical and
+    design content had always been part of my career, but this new habit had me completely immersed in
+    web development. I grew so much as a frontend engineer and fell in love with my craft.
   </p>
-  <h3 class="article__head-tertiary">What and who did I read?</h3>
+  <p class="has-pullquote" data-pullquote="give yourself that space to learn">
+    One or two blog posts a day can be lot, especially if your commute includes driving. Or maybe you 
+    don't have a commute but are juggling childcare and work (like me in this pandemic). Figure out
+    what works best for you, but if possible, give yourself that space to learn.
+  </p>
+  <h3 class="article__head-tertiary">What and who did I follow?</h3>
+  <p>
+    In the schema of the <a href="https://css-tricks.com/the-great-divide/">The Great Divide</a>,
+    I fall into the UI side of things, so find it as no surprise that many of the publications and
+    individuals I follow do so as well. But there's a bit of everything. I also try to follow voices
+    that question our industry and promote inclusivity.
+  </p>
   <p>
     <a href="https://www.smashingmagazine.com/">Smashing Magazine</a>, <a href="https://alistapart.com/">A List Apart</a>, 
     <a href="https://css-tricks.com/">CSS-Tricks</a>, <a href="https://www.zeldman.com/">Jeffrey Zeldman</a>,
     <a href="https://larahogan.me/">Lara Hogan</a>, <a href="https://www.igvita.com/">Ilya Grigorik</a>, 
     <a href="https://addyosmani.com/">Addy Osmani</a>, <a href="https://www.paulirish.com/">Paul Irish</a>, 
     <a href="http://lea.verou.me/">Lea Verou</a>, <a href="http://compositescollective.com/">Claudina Sarahe</a>,
-    <a href="https://tomdale.net/">Tom Dale</a>,
+    <a href="https://tomdale.net/">Tom Dale</a>, <a href="https://medium.com/@jennschiffer">Jenn Schiffer</a>,
     <a href="https://iheanyi.com/">Iheanyi Ekechukwu</a>, <a href="https://twitter.com/patrickhamann">Patrick Hamman</a>,
     <a href="https://yehudakatz.com/">Yehuda Katz</a>, <a href="https://humanwhocodes.com/">Nicholas Zakas</a>, 
     <a href="http://nicolasgallagher.com/">Nicolas Gallagher</a>, <a href="https://rachelandrew.co.uk/">Rachel Andrew</a>, 
     <a href="https://jakearchibald.com/">Jake Archibald</a>, <a href="https://tammyeverts.wordpress.com/">Tammy Everts</a>,
+    <a href="https://www.sarasoueidan.com/">Sara Soueidan</a>, <a href="https://aerotwist.com/blog/">Paul Lewis</a>,
     <a href="https://ethanmarcotte.com/">Ethan Marcotte</a>, <a href="https://jensimmons.com/">Jenn Simmons</a>, 
     <a href="https://meyerweb.com/eric/">Eric Meyer</a>, <a href="http://www.stubbornella.org/content/">Nicole Sullivan</a>, 
     <a href="https://johnresig.com/">John Resig</a>, <a href="https://csswizardry.com/">Harry Roberts</a>, 
     and probably others I'm forgetting now.
   </p>
   <h3 class="article__head-tertiary">Who would I follow today?</h3>
-  <p>I'm much more focused on management, so I'm out of date with regards to who to look to for the latest on frontend development. Most of the people I originally followed are still speaking and writing on the topic, but here some people I've learned a lot from in the past few years.</p>
+  <p>
+    I'm much more focused on management, so I'm out of date with regards to who to look to for the
+    latest on frontend development. Most of the people I originally followed are still speaking and
+    writing on the topic, but these are some individulas from whom I've learned a lot in the past few years.
+  </p>
   <ul class="list-two-col">
     <li><a href="http://mina.codes">Mina Markham</a></li>
+    <li><a href="https://sarahdrasnerdesign.com/">Sara Drasner</a></li>
+    <li><a href="https://valhead.com/">Val Head</a></li>
     <li><a href="https://noti.st/melsumner">Melanie Sumner</a></li>
     <li><a href="https://una.im/">Una Kravitz</a></li>
     <li><a href="https://cassidoo.co/">Cassidy Williams</a></li>
@@ -60,17 +83,56 @@ tags:
     <li><a href="https://infrequently.org/">Alex Russell</a></li>
     <li><a href="https://wesbos.com/">Wes Bos</a></li>
     <li><a href="https://overreacted.io/">Dan Abramov</a></li>
+    <li><a href="https://heydonworks.com/">Heydon Pickering</a></li>
   </ul>
-  <p>No doubt there are more people to follow out there who are pushing the limits of frontend development.</p>
+  <p>No doubt there are more people to follow out there who are pushing the limits of web development.</p>
   <h2 class="article__head-secondary">Conferences I follow</h2>
-  <p>I love going to conferences, but the opportunities</p>
-  <h2 class="article__head-secondary">My favorite conference talks</h2>
+  <p>
+    I love going to conferences and equally appreciate being able to watch them online. Here are my favorites.
+    A good talk can give you a new perspective and a good speaker can inspire you (and even make you laugh).
+  </p>
+  <ul class="list-two-col">
+    <li><a href="https://aneventapart.com/news/videos">An Event Apart</a></li>
+    <li><a href="https://www.smashingmagazine.com/category/smashingconf">SmashingConf</a></li>
+    <li><a href="https://www.youtube.com/channel/UCmM3eCpmWKLJj2PDW_jdGkg">The Lead Dev</a></li>
+    <li><a href="https://www.youtube.com/user/jsconfeu">JSConf Asia, EU, US and the rest of the family</a></li>
+    <li><a href="https://www.youtube.com/c/WebConferencesAmsterdam">performance.now()</a></li>
+    <li><a href="https://www.youtube.com/user/ChromeDevelopers">Google Chrome Developers</a></li>
+    <li><a href="https://www.youtube.com/watch?v=lyRPyRKHO8M&list=PLOU2XLYxmsILVTiOlMJdo7RQS55jYhsMi">Google I/O</a></li>
+  </ul>
+  <h3 class="article__head-tertiary">My favorite conference talks</h3>
   <p>
       Understanding what happens when a page request is initiated and how event loop works is
-      vital to the success of any engineer building web applications.</p>
+      vital to the success of any engineer building web applications. 
+  </p>
   <ul>
     <li><a href="https://www.youtube.com/watch?v=yK5G4VnMGpo">Server Farm to Table</a>, Jenna Zeigan, DinosaurJS 2016</li>
     <li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">What the heck is the event loop anyway?</a>, Philip Roberts, JSConf EU 2014</li>
     <li><a href="https://www.youtube.com/watch?v=cCOL7MC4Pl0">In The Loop</a>, Jake Archibald, JSConf Asia 2018</li>
+    <li><a href="https://www.youtube.com/watch?v=RtpVZ5OzJlc">Designing for Performance</a>, Lara Hogan, Fluent Conference 2014</li>
   </ul>
+  <h2 class="article__head-secondary">Meetups</h2>
+  <p>
+    Meetups and events have been vital to me for learning opportunities, inspiration, and networking. 
+    When I move to new cities, often the first thing I do is find a community. Here are few recorded events worth checking out.
+  </p>
+  <ul>
+    <li><a href="https://www.youtube.com/channel/UC2UdWwrN8j_sMo0AQVvwOqw">Accessibility NYC</a></li>
+    <li><a href="https://www.youtube.com/user/EmberNYC">Ember NYC</a></li>
+    <li><a href="https://www.youtube.com/user/NYWebPerformance">NY Web Performance</a></li>
+  </ul>
+  <h2 class="article__head-secondary">Newsletters</h2>
+  <ul>
+    <li><a href="https://cassidoo.co/newsletter/">rendezvous with cassidoo</a></li>
+    <li><a href="https://javascriptweekly.com/">JavaScript Weekly</a></li>
+    <li><a href="https://piccalil.li/">The Piccalilli Newsletter</a></li>
+    <li><a href="https://codepen.io/spark/">The CodePen Spark</a></li>
+  </ul>
+  <hr>
+  <p>
+    The gist of it all is obvious, <em>don't stop learning</em>. Find people in our industry that share information
+    you find interesting or challenging. Not only does this keep you competitive,
+    it will help you enjoy your work more. Figure out what works for you. Maybe audio books are your thing 
+    or hands-on training.
+  </p>
 </article>

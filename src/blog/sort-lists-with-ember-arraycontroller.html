@@ -2,14 +2,18 @@
 layout: layouts/layout.njk
 title: Sort lists with Ember ArrayController
 date: 2013-06-30
+intro: |
+  <p>Ember makes sorting lists easy with <a href="http://emberjs.com/api/classes/Ember.ArrayController.html">ArrayController</a>. The first time I used it for sorting, it took longer than it should've to implement due the lack of solid examples. I hope this post helps others out there. This uses custom sorting to organize a list of blog posts.</p>
 tags:
+  - post
   - Ember
   - JavaScript
 ---
 
-<article class="article">
+<article id="main" class="article readable">
   <h1 class="article__head">{{title}}</h1>
-  <p><time datetime="{{page.date}}">{% formatDate page.date %}</time>Ember makes sorting lists easy with <a href="http://emberjs.com/api/classes/Ember.ArrayController.html">ArrayController</a>. The first time I used it for sorting, it took longer than it should've to implement due the lack of solid examples. I hope this post helps others out there. This uses custom sorting to organize a list of blog posts.</p>
+  <time datetime="{{page.date}}">{% formatDate page.date %}</time>
+  {{intro}}
   <p>If you'd rather skip this post, the <a href="http://chicagoing.github.io/sort-ember-array-controller/index-4.html">final working example can be viewed here</a>.  <a href="https://github.com/chicagoing/sort-ember-array-controller">The code is available on GitHub</a>.</p>
 
   <h2 class="article__head-secondary">A simple ArrayController</h2>

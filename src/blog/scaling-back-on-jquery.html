@@ -1,15 +1,20 @@
 ---
 layout: layouts/layout.njk
 title: Scaling back on jQuery and other JavaScript libraries
+date: 2013-07-05
+intro: |
+  <p>I'm observing a trend in blogs and presentations: scale back on libraries like jQuery.</p>
+  <p>In his popular presentation called "<a href="http://www.slideshare.net/nzakas/enough-withthejavascriptalready">Enough With The JavaScript Already!</a>," Nicolas Zakas points out that JavaScript is bloating our bandwidth, and we're not even using it all. Evan Hahn reminds us of some of <a href="http://evanhahn.com/doing-without-jquery/">jQuery's equivalent native DOM methods</a>. Chris Love gently states, "<a href="http://professionalaspnet.com/archive/2013/04/14/Why-Its-Time-to-Sunset-jQuery.aspx">In many ways thanks to jQuery, jQuery itself is no longer needed</a>."</p>
 tags:
+  - post
   - jQuery
   - JavaScript
 ---
 
-<article class="article">
+<article id="main" class="article readable">
   <h1 class="article__head">{{title}}</h1>
-  <p><time datetime="2013-07-05T21:35:00-07:00">July 5, 2013</time>I'm observing a trend in blogs and presentations: scale back on libraries like jQuery.</p>
-  <p>In his popular presentation called "<a href="http://www.slideshare.net/nzakas/enough-withthejavascriptalready">Enough With The JavaScript Already!</a>," Nicolas Zakas points out that JavaScript is bloating our bandwidth, and we're not even using it all. Evan Hahn reminds us of some of <a href="http://evanhahn.com/doing-without-jquery/">jQuery's equivalent native DOM methods</a>. Chris Love gently states, "<a href="http://professionalaspnet.com/archive/2013/04/14/Why-Its-Time-to-Sunset-jQuery.aspx">In many ways thanks to jQuery, jQuery itself is no longer needed</a>."</p>
+  <time datetime="2013-07-05T21:35:00-07:00">July 5, 2013</time>
+  {{intro}}
   <p>I was curious about how jQuery and Zepto stack up against native DOM methods. Obviously, the native methods will perform better, but I was surprised at how much better. In full front-end applications like my own website, this can actually make a difference.</p>
   <p>First I tested fetching an element by ID:</p>
 
