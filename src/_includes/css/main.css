@@ -106,12 +106,12 @@ time {
 time:before {
   content: '';
   display: inline-block;
-  border-width: .625em;
+  border-width: .85em;
   border-color: transparent;
   border-style: solid;
   border-right-color: var(--color--bg--light-pink);
   border-top-color: var(--color--bg--light-pink);
-  left: -1.25em;
+  left: -1.7em;
   top: 0;
   position: absolute;
 }
