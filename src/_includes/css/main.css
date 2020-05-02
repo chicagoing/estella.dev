@@ -6,6 +6,7 @@
   --color--pink-dark: #805656;
   --color--bg--primary: #f7f7f7;
   --color--bg--light-pink: #efe7e7;
+  --color--bg--lighter-pink: #f9f6f6;
 
   --spacing--container: 1.5rem;
   --font-size--default: 18px;
@@ -42,7 +43,6 @@ body {
 /* Set some defaults */
 a {
   color: var(--color--pink-dark);
-  transition: color 0.15s linear, outline 0.1s linear;
 }
 a:hover {
   text-decoration: none;
@@ -54,7 +54,8 @@ a:focus {
 
 hr {
   border: 0;
-  border-top: 1px solid var(--color--pink-dark);
+  height: 1px;
+  margin: 1.5em 0;
 }
 
 img {
@@ -364,15 +365,35 @@ pre {
   margin: 1.5em 0 .25em;
 }
 
+.page-title {
+  margin-bottom: 1em;
+}
+
 /* Posts listing */
 .posts {
   list-style: none;
-  margin: 0 auto;
-  max-width: 800px;
+  margin: 0;
   padding: 0;
 }
 .posts__item  {
-  margin-bottom: var(--spacing--container);
+  margin: 0 0 var(--spacing--container);
+  position: relative;
+}
+.posts__item::after {
+  content: '';
+  background-image:
+    linear-gradient(
+      to right, 
+      var(--color--pink-dark), var(--color--bg--lighter-pink)
+    );
+  bottom: -1.5em;
+  left: 0;
+  height: 1px;
+  position: absolute;
+  width: 25%;
+}
+.posts__item:last-child::after {
+  display: none;
 }
 .posts__title {
   margin: 0;
@@ -381,8 +402,23 @@ pre {
 .link-home {
   font-size: 2em;
   line-height: 1;
+  background: linear-gradient(90deg,#030202,#a37575);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
   text-decoration: none;
 }
+.link-home:focus {
+  background: linear-gradient(90deg,#030202,#a37575);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
 .page--home .link-home {
   display: none;
 }
@@ -442,6 +478,8 @@ pre {
   white-space: nowrap;
 }
 .readable {
+  margin-left: auto;
+  margin-right: auto;
   max-width: 40rem;
 }
 
@@ -465,4 +503,12 @@ pre {
   padding: 0 .25em;
   margin: 0 .2em;
   text-decoration: none;
+}
+
+.horizontal-pink-gradient {
+  background-image:
+    linear-gradient(
+      to right, 
+      var(--color--pink-dark), var(--color--bg--lighter-pink)
+    );
 }

@@ -4,12 +4,15 @@ title: Writing
 ---
 
 <div id="main" class="content">
-  <ul class="posts readable">
-    {%- for post in collections.post | reverse -%}
-      <li class="posts__item">
-        <h2 class="posts__title"><a class="no-decoration" href="{{post.url}}">{{ post.data.title }}</a></h2>
-        <time datetime="{{post.date}}">{% formatDate post.date %}</time>{{post.data.intro | safe }}
-      </li>
-    {%- endfor -%}
-  </ul>
+  <div class="readable">
+    <h1 class="page-title">{{title}}</h1>
+    <ul class="posts">
+      {%- for post in collections.post | reverse -%}
+        <li class="posts__item">
+          <h2 class="posts__title"><a class="no-decoration" href="{{post.url}}">{{ post.data.title }}</a></h2>
+          <time datetime="{{post.date}}">{% formatDate post.date %}</time>{{post.data.intro | safe }}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
 </div>
