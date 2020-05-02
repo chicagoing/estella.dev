@@ -8,6 +8,7 @@
   --color--bg--light-pink: #efe7e7;
 
   --spacing--container: 1.5rem;
+  --font-size--default: 18px;
 }
 
 /*
@@ -19,6 +20,7 @@
 @media screen and (min-width: 25rem) {
 	:root {
     --spacing--container: 2rem;
+    --font-size--default: 16px;
 	}
 }
 @media screen and (min-width: 43.75rem) {
@@ -31,7 +33,7 @@ body {
   background: var(--color--bg--primary);
   color: var(--color--primary);
   font-family: 'Libre Baskerville', Georgia, serif;
-  font-size: 18px;
+  font-size: var(--font-size--default);
   line-height: 1.5;
   margin: 0;
   position: relative;
@@ -89,6 +91,7 @@ h3 {
 h4 {
   color: var(--color--primary--dark);
   font-size: 1.2rem;
+  line-height: 1;
   margin: 0 0 .5em;
 }
 h5 {
