@@ -43,6 +43,7 @@ body {
 /* Set some defaults */
 a {
   color: var(--color--pink-dark);
+  transition: color .15s linear, outline .1s linear;
 }
 a:hover {
   text-decoration: none;
