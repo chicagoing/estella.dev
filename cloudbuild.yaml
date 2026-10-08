@@ -1,7 +1,20 @@
 steps:
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
-- name: gcr.io/cloud-builders/gsutil
-  args: ["-m", "rsync", "-r", "-c", "-d", "_site", "gs://www.estella.dev"]
+  # 1. Install dependencies
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["ci"] # 'ci' is faster and more reliable than 'install' in CI/CD environments
+
+  # 2. Build the Eleventy site
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+
+  # 3. Sync built site to GCS bucket using modern gcloud storage
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: "gcloud"
+    args:
+      - "storage"
+      - "rsync"
+      - "_site"
+      - "gs://www.estella.dev"
+      - "--recursive"
+      - "--delete-unmatched-destination-objects"
+      - "--checksums-only"
