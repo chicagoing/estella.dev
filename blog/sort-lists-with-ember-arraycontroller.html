@@ -12,17 +12,28 @@ tags:
 
 <article id="main" class="article readable">
   <h1 class="article__head">{{title}}</h1>
-  <time datetime="{{page.date}}">{% formatDate page.date %}</time>
+  <time datetime="{{date}}">{{date}}</time>
   {{intro}}
-  <p>If you'd rather skip this post, the <a href="http://chicagoing.github.io/sort-ember-array-controller/index-4.html">final working example can be viewed here</a>.  <a href="https://github.com/chicagoing/sort-ember-array-controller">The code is available on GitHub</a>.</p>
+  <p>
+    If you'd rather skip this post, the
+    <a
+      href="http://chicagoing.github.io/sort-ember-array-controller/index-4.html"
+      >final working example can be viewed here</a
+    >.
+    <a href="https://github.com/chicagoing/sort-ember-array-controller"
+      >The code is available on GitHub</a
+    >.
+  </p>
 
   <h2 class="article__head-secondary">A simple ArrayController</h2>
-  <p>Let's build a simple Ember.ArrayController called <code>App.IndexController</code> and bind it to a list of posts:</p>
+  <p>
+    Let's build a simple Ember.ArrayController called
+    <code>App.IndexController</code> and bind it to a list of posts:
+  </p>
   <pre><code class="language-javascript">App.IndexController = Ember.ArrayController.extend({
     contentBinding: Ember.Binding.oneWay('App.Post.FIXTURES')
   });</code></pre>
-  <p>
-  <code>App.Posts.FIXTURES</code> is a static collection of blog posts:</p>
+  <p><code>App.Posts.FIXTURES</code> is a static collection of blog posts:</p>
   <pre class="not-vital"><code class="language-javascript">App.Post.FIXTURES = [
   App.Post.create({
     id: 1,
@@ -47,17 +58,20 @@ Phasellus sollicitudin, nunc vel suscipit convallis, justo sapien rhoncus purus,
     labels: ['css']
   })
 ];</code></pre>
-  <p><code>App.Post</code> itself is a simple <a href="http://emberjs.com/api/classes/Ember.Object.html">Ember.Object</a>:</p>
+  <p>
+    <code>App.Post</code> itself is a simple
+    <a href="http://emberjs.com/api/classes/Ember.Object.html">Ember.Object</a>:
+  </p>
   <pre><code class="language-javascript">App.Post = Ember.Object.extend({
   title: null,
   content: null,
   published: null,
   labels: []
 });</code></pre>
-  <p>Use the <code>{{#each}}</code> helper to display each blog post:</p>
+  <p>Use the <code>#each</code> helper to display each blog post:</p>
   <pre><code class="language-markup">&lt;script type="text/x-handlebars" data-template-name="index"&gt;
   &lt;ul&gt;
-    {{#each controller}}
+    &#123;&#123;#each controller}}
       &lt;li&gt;
         &lt;h3&gt;&#123;&#123;title}}&lt;/h3&gt;
         &lt;time &#123;&#123;bindAttr datetime="published"}}&gt;
@@ -65,20 +79,43 @@ Phasellus sollicitudin, nunc vel suscipit convallis, justo sapien rhoncus purus,
         &lt;/time&gt;
         &#123;&#123;{content}}}
       &lt;/li&gt;
-    {{/each}}
+    &#123;&#123;/each}}
   &lt;/ul&gt;
 &lt;/script&gt;</code></pre>
   <p>This gives us a list that looks roughly like:</p>
   <figure>
-  <img class="screenshot" src="http://1.bp.blogspot.com/-MkxsQQHIbQg/UdDRwjWHNQI/AAAAAAAAAsM/GiNRqp4jL9g/s744/array-controller-1.png" />
-  <figcaption><a href="http://chicagoing.github.io/sort-ember-array-controller/">View the online example on GitHub.</a></figcaption>
+    <img
+      class="screenshot"
+      src="http://1.bp.blogspot.com/-MkxsQQHIbQg/UdDRwjWHNQI/AAAAAAAAAsM/GiNRqp4jL9g/s744/array-controller-1.png"
+    />
+    <figcaption>
+      <a href="http://chicagoing.github.io/sort-ember-array-controller/"
+        >View the online example on GitHub.</a
+      >
+    </figcaption>
   </figure>
 
   <h2 class="article__head-secondary">Sorting the content</h2>
-  <p>Per the Ember documentation, <code>sortProperties</code> specifies which properties dictate the <code>arrangedContent</code>'s sort order; <code>sortAscending</code> specifies the <code>arrangedContent</code>'s sort order. Both are part of the <a href="http://emberjs.com/api/classes/Ember.SortableMixin.html">Ember.SortableMixin</a>.</p>
-  <p>Note that these properties affect <code>arrangedContent</code> and not the ArrayController's <code>content</code> property.
-  <code>arrangedContent</code> is the same as <code>content</code>, except it's the list that gets manipulated and sorted.</p>
-  <p>Let's update our ArrayController with values for these two properties. By default, we'll order by the published date in descending order. We want users to be able to order by title as well, so we'll include that property.</p>
+  <p>
+    Per the Ember documentation, <code>sortProperties</code> specifies which
+    properties dictate the <code>arrangedContent</code>'s sort order;
+    <code>sortAscending</code> specifies the <code>arrangedContent</code>'s sort
+    order. Both are part of the
+    <a href="http://emberjs.com/api/classes/Ember.SortableMixin.html"
+      >Ember.SortableMixin</a
+    >.
+  </p>
+  <p>
+    Note that these properties affect <code>arrangedContent</code> and not the
+    ArrayController's <code>content</code> property.
+    <code>arrangedContent</code> is the same as <code>content</code>, except
+    it's the list that gets manipulated and sorted.
+  </p>
+  <p>
+    Let's update our ArrayController with values for these two properties. By
+    default, we'll order by the published date in descending order. We want
+    users to be able to order by title as well, so we'll include that property.
+  </p>
   <pre><code class="language-javascript">App.IndexController = Ember.ArrayController.extend({
   contentBinding: Ember.Binding.oneWay('App.Post.FIXTURES'),
 
@@ -95,15 +132,30 @@ Phasellus sollicitudin, nunc vel suscipit convallis, justo sapien rhoncus purus,
   sortAscending: false
 });</code></pre>
 
-  <p>Our list should now resemble this, with the most recent posts at the top:</p>
+  <p>
+    Our list should now resemble this, with the most recent posts at the top:
+  </p>
   <figure>
-  <img class="screenshot" src="http://2.bp.blogspot.com/-D9XNSyepz0o/UdDRwnDdwkI/AAAAAAAAAsc/WHFZZWkE7Ig/s741/array-controller-2.png" />
-  <figcaption><a href="http://chicagoing.github.io/sort-ember-array-controller/index-2.html">View the online example on GitHub.</a></figcaption>
+    <img
+      class="screenshot"
+      src="http://2.bp.blogspot.com/-D9XNSyepz0o/UdDRwnDdwkI/AAAAAAAAAsc/WHFZZWkE7Ig/s741/array-controller-2.png"
+    />
+    <figcaption>
+      <a
+        href="http://chicagoing.github.io/sort-ember-array-controller/index-2.html"
+        >View the online example on GitHub.</a
+      >
+    </figcaption>
   </figure>
-  <p>Let's add the ability for users to change the order of the posts. We'll do this with a simple select box, utilizing the <a href="http://emberjs.com/api/classes/Ember.Select.html">Ember.Select</a> view:</p>
+  <p>
+    Let's add the ability for users to change the order of the posts. We'll do
+    this with a simple select box, utilizing the
+    <a href="http://emberjs.com/api/classes/Ember.Select.html">Ember.Select</a>
+    view:
+  </p>
   <pre><code class="language-javascript">&lt;p&gt;
   &lt;label&gt;Sort by:
-    {{view Ember.Select
+    &#123;&#123;view Ember.Select
       contentBinding="sortOptions"
       optionValuePath="content.value"
       optionLabelPath="content.label"
@@ -111,7 +163,10 @@ Phasellus sollicitudin, nunc vel suscipit convallis, justo sapien rhoncus purus,
     &lt;/label&gt;
 &lt;/p&gt;</code></pre>
 
-  <p>We've bound the content to <code>sortOptions</code>, which we'll define in our<code>App.IndexController</code>:</p>
+  <p>
+    We've bound the content to <code>sortOptions</code>, which we'll define in
+    our<code>App.IndexController</code>:
+  </p>
   <pre><code class="language-javascript">/**
 @property sortOptions
 The list of options to display inside an Ember.Select view
@@ -158,12 +213,19 @@ init: function() {
   return this._super();
 }</code></pre>
   <p>
-  Also included is a <code>currentSortOption</code> to keep track of the currently selected option. When the <code>init</code> event fires, we'll set this
-  to the default. When overriding built-in methods, don't forget to call <code>this._super()</code>, otherwise strange things may happen as Ember may
-  be unable to do important setup work.</p>
+    Also included is a <code>currentSortOption</code> to keep track of the
+    currently selected option. When the <code>init</code> event fires, we'll set
+    this to the default. When overriding built-in methods, don't forget to call
+    <code>this._super()</code>, otherwise strange things may happen as Ember may
+    be unable to do important setup work.
+  </p>
   <p>
-  This alone won't work though. In order to trigger sorting on the blog posts, we need to update <code>sortProperties</code> and <code>sortAscending</code>. So let's
-  add an observer for <code>currentSortOption</code>—whenever it changes we'll update <code>sortProperties</code> and <code>sortAscending</code>.</p>
+    This alone won't work though. In order to trigger sorting on the blog posts,
+    we need to update <code>sortProperties</code> and
+    <code>sortAscending</code>. So let's add an observer for
+    <code>currentSortOption</code>—whenever it changes we'll update
+    <code>sortProperties</code> and <code>sortAscending</code>.
+  </p>
   <pre><code class="language-javascript">/**
 @method
 Fires whenever currentSortOption changes. Updates sortAscending and sortProperties to trigger reording
@@ -191,18 +253,37 @@ currentSortOptionChanged: function() {
 }.observes('currentSortOption')</code></pre>
   <p>And voilà! We have a working example for sorting with Ember.</p>
   <figure>
-  <img class="screenshot" src="http://2.bp.blogspot.com/-fCz3Ot4Je3c/UdDRwtqeisI/AAAAAAAAAsU/fE35tAWy2v8/s745/array-controller-3.png" />
-  <figcaption><a href="http://chicagoing.github.io/sort-ember-array-controller/index-3.html">View the online example on GitHub.</a></figcaption>
+    <img
+      class="screenshot"
+      src="http://2.bp.blogspot.com/-fCz3Ot4Je3c/UdDRwtqeisI/AAAAAAAAAsU/fE35tAWy2v8/s745/array-controller-3.png"
+    />
+    <figcaption>
+      <a
+        href="http://chicagoing.github.io/sort-ember-array-controller/index-3.html"
+        >View the online example on GitHub.</a
+      >
+    </figcaption>
   </figure>
-  <p>
-  But… notice there are two issues:</p>
+  <p>But… notice there are two issues:</p>
   <ol>
-  <li>The dates are being treated as strings because that's how they're set up in the model.</li>
-  <li>The title starting with "The" is pushed to the bottom, but what if we want to ignore <a href="https://en.wikipedia.org/wiki/Stop_words">stop words</a>?</li>
+    <li>
+      The dates are being treated as strings because that's how they're set up
+      in the model.
+    </li>
+    <li>
+      The title starting with "The" is pushed to the bottom, but what if we want
+      to ignore
+      <a href="https://en.wikipedia.org/wiki/Stop_words">stop words</a>?
+    </li>
   </ol>
 
   <h2 class="article__head-secondary">Custom sorting</h2>
-  <p>Whenever the sort properties change in an ArrayController, the <code>orderBy</code> method is triggered to reorder the list. Let's override this method in <code>App.IndexController</code> to convert dates to true dates and remove stop words from titles:</p>
+  <p>
+    Whenever the sort properties change in an ArrayController, the
+    <code>orderBy</code> method is triggered to reorder the list. Let's override
+    this method in <code>App.IndexController</code> to convert dates to true
+    dates and remove stop words from titles:
+  </p>
   <pre><code class="language-javascript">/**
 @method
 Called by Ember.SortableMixin to sort the arrangedContent collection
@@ -261,15 +342,32 @@ cleanString: function(str) {
 }</code></pre>
   <p>Our list is now ordered properly.</p>
   <figure>
-  <img class="screenshot" src="http://3.bp.blogspot.com/-xlwS_hhAON0/UdDRxFfnnBI/AAAAAAAAAsg/WLUxNNhCuLg/s752/array-controller-4.png" />
-  <figcaption><a href="http://chicagoing.github.io/sort-ember-array-controller/index-4.html">View the final working example on GitHub.</a></figcaption>
+    <img
+      class="screenshot"
+      src="http://3.bp.blogspot.com/-xlwS_hhAON0/UdDRxFfnnBI/AAAAAAAAAsg/WLUxNNhCuLg/s752/array-controller-4.png"
+    />
+    <figcaption>
+      <a
+        href="http://chicagoing.github.io/sort-ember-array-controller/index-4.html"
+        >View the final working example on GitHub.</a
+      >
+    </figcaption>
   </figure>
 
   <aside>
-  <h2 class="aside-heading">Also read&hellip;</h2>
-  <ul>
-  <li><a href="http://emberjs.com/api/classes/Ember.ArrayController.html">Documentation for Ember.ArrayController</a></li>
-  <li><a href="http://matchingnotes.com/ember-array-proxy/">A walk through the Ember ArrayProxy</a> by James Croft</li>
-  </ul>
+    <h2 class="aside-heading">Also read&hellip;</h2>
+    <ul>
+      <li>
+        <a href="http://emberjs.com/api/classes/Ember.ArrayController.html"
+          >Documentation for Ember.ArrayController</a
+        >
+      </li>
+      <li>
+        <a href="http://matchingnotes.com/ember-array-proxy/"
+          >A walk through the Ember ArrayProxy</a
+        >
+        by James Croft
+      </li>
+    </ul>
   </aside>
 </article>

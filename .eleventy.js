@@ -1,42 +1,54 @@
-const cleanCSS = require("clean-css");
-const htmlMin = require("html-minifier");
-const fs = require('fs');
+import { transform } from "lightningcss";
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new cleanCSS({}).minify(code).styles;
-  });
+export default function (eleventyConfig) {
+  eleventyConfig.addPassthroughCopy("main.css");
+  eleventyConfig.addPassthroughCopy("img");
 
-  eleventyConfig.addPassthroughCopy("src/img");
-
-  eleventyConfig.addTransform("htmlMin", function(content, outputPath) {
-    if(outputPath.endsWith(".html")) {
-      let minified = htmlMin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true
+  eleventyConfig.addFilter("cssmin", function (inputCode) {
+    if (process.env.ELEVENTY_RUN_MODE === "build") {
+      let { code } = transform({
+        // filename: undefined,
+        code: Buffer.from(inputCode),
+        minify: true,
+        sourceMap: false,
       });
-      return minified;
+      return code;
     }
 
-    return content;
+    return `/* [buildawesome] cssmin skipped during --watch and --serve */\n${inputCode}`;
   });
 
   // Universal shortcodes
-  eleventyConfig.addShortcode("formatDate", function(d) {
+  eleventyConfig.addShortcode("formatDate", function (d) {
     // Create a date object from d
     const date = new Date(d);
 
     // Create a list of names for the months
-    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',	'November', 'December'];
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
     // return a formatted date
-    return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
+    return (
+      months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+    );
   });
 
   return {
     dir: {
-      input: 'src'
-    }
+      input: "", // Eleventy looks here for your files!
+      output: "_site",
+    },
   };
-};
+}

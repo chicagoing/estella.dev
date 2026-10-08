@@ -13,11 +13,11 @@
 
   <!-- capture the CSS content as a Nunjucks variable -->
   {% set css %}
-    {% include "css/main.css" %}
+    {% include "main.css" %}
   {% endset %}
   <!-- feed it through our cssmin filter to minify -->
   <style>
-    {{ css | cssmin | safe }}
+    {{ css | safe }}
   </style>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -52,7 +52,7 @@
   {% if "/" == page.url %}
   <header class="container header">
     <h1>{{title}}</h1>
-    <h2 class="header__subhead">Engineering manager & UI-focused software engineer</h2>
+    <h2 class="header__subhead">Engineering leader & UI-focused software engineer</h2>
     <p class="header__p"><em>I write about my personal experiences and technical challenges</em></p>
   </header>
   {% endif %}
@@ -65,19 +65,9 @@
     <div class="container container--footer">
       <div class="content content--footer">
         <div class="content__col content__col--footer">
-          <p class="copyright">Copyright © 2021 Estella Madison. All rights reserved.</p>
+          <p class="copyright">Copyright © 2026 Estella Madison. All rights reserved.</p>
         </div>
         <div class="content__col content__col--footer">
-          <a class="icon-link" href="https://www.twitter.com/chicagoing">
-            <svg class="icon">
-              <use xlink:href="/img/icons.svg#twitter"></use>
-            </svg>
-          </a>
-          <a class="icon-link" href="https://www.instagram.com/chicagoing/">
-            <svg class="icon">
-              <use xlink:href="/img/icons.svg#instagram"></use>
-            </svg>
-          </a>
           <a class="icon-link" href="https://github.com/chicagoing">
             <svg class="icon">
               <use xlink:href="/img/icons.svg#github"></use>

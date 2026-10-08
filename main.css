@@ -19,21 +19,21 @@
   * Desktop: 62.5rem // 1000px
  */
 @media screen and (min-width: 25rem) {
-	:root {
+  :root {
     --spacing--container: 2rem;
     --font-size--default: 16px;
-	}
+  }
 }
 @media screen and (min-width: 43.75rem) {
-	:root {
+  :root {
     --spacing--container: 3rem;
-	}
+  }
 }
 
 body {
   background: var(--color--bg--primary);
   color: var(--color--primary);
-  font-family: 'Libre Baskerville', Georgia, serif;
+  font-family: "Libre Baskerville", Georgia, serif;
   font-size: var(--font-size--default);
   line-height: 1.5;
   margin: 0;
@@ -43,7 +43,9 @@ body {
 /* Set some defaults */
 a {
   color: var(--color--pink-dark);
-  transition: color .15s linear, outline .1s linear;
+  transition:
+    color 0.15s linear,
+    outline 0.1s linear;
 }
 a:hover {
   text-decoration: none;
@@ -65,7 +67,7 @@ img {
 
 figcaption {
   color: var(--color--primary--med);
-  font-size: .7em;
+  font-size: 0.7em;
   line-height: 1.1;
   text-align: right;
 }
@@ -74,13 +76,13 @@ h1 {
   font-size: 3.5rem;
   font-weight: bold;
   line-height: 1;
-  margin: 0 0 .25em;
+  margin: 0 0 0.25em;
 }
 h2 {
   font-size: 1.5rem;
   font-weight: bold;
   line-height: 1.2;
-  margin: 1em 0 .5em;
+  margin: 1em 0 0.5em;
 }
 h2:first-child {
   margin-top: 0;
@@ -88,18 +90,18 @@ h2:first-child {
 h3 {
   font-size: 1.8rem;
   line-height: 1.2;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
 }
 h4 {
   color: var(--color--primary--dark);
   font-size: 1.2rem;
   line-height: 1;
-  margin: 0 0 .5em;
+  margin: 0 0 0.5em;
 }
 h5 {
   font-size: 1.15rem;
   line-height: 1.1;
-  margin: 0 0 .25em;;
+  margin: 0 0 0.25em;
 }
 p {
   margin: 1em 0;
@@ -109,17 +111,17 @@ time {
   background: var(--color--bg--light-pink);
   color: var(--color--pink-dark);
   display: inline-block;
-  font-size: .8em;
+  font-size: 0.8em;
   font-weight: bold;
-  margin-right: .5em;
-  padding: .15em .2em .1em;
+  margin-right: 0.5em;
+  padding: 0.15em 0.2em 0.1em;
   position: relative;
   text-transform: uppercase;
 }
 time:before {
-  content: '';
+  content: "";
   display: inline-block;
-  border-width: .85em;
+  border-width: 0.85em;
   border-color: transparent;
   border-style: solid;
   border-right-color: var(--color--bg--light-pink);
@@ -144,45 +146,57 @@ p:first-child {
 table {
   border-collapse: collapse;
   border-spacing: 0;
-  font: 200 .8em/1 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font:
+    200 0.8em/1 system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
   width: 100%;
   min-width: 300px;
-  overflow: auto
+  overflow: auto;
 }
 thead {
   border-bottom: 2px solid var(--color--primary);
 }
 th {
   font-weight: 400;
-  overflow: hidden
+  overflow: hidden;
 }
 tbody tr {
   border-bottom: 1px solid var(--color--primary);
 }
-td, th {
-  padding: .25em 0;
-  text-align: center
+td,
+th {
+  padding: 0.25em 0;
+  text-align: center;
 }
 td:first-child {
-  text-align: left
+  text-align: left;
 }
 caption {
-  font-size: .9em;
+  font-size: 0.9em;
   font-weight: 400;
   text-transform: uppercase;
   text-align: right;
-  margin-bottom: .5em
+  margin-bottom: 0.5em;
 }
 
 pre {
   background: #ededed;
-  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, "Lucida Console", Monaco, monospace;
+  font-family:
+    SFMono-Regular, Consolas, "Liberation Mono", Menlo, "Lucida Console",
+    Monaco, monospace;
   font-size: 1rem;
   line-height: 1;
   margin: 1em 0;
   max-width: 45rem;
   overflow: auto;
-  padding: .5em;
+  padding: 0.5em;
   width: 100%;
 }
 
@@ -218,7 +232,7 @@ pre {
   font-size: 2rem;
   font-weight: normal;
   line-height: 1.2;
-  margin: 0 0 .3em;
+  margin: 0 0 0.3em;
 }
 .header__p {
   margin-top: 0;
@@ -242,11 +256,11 @@ pre {
 }
 .content__col--secondary {
   /* TODO: make this functional? */
-  background-image:
-    linear-gradient(
-      to bottom right, 
-      var(--color--bg--light-pink) 50%, var(--color--bg--primary) 50%
-    );
+  background-image: linear-gradient(
+    to bottom right,
+    var(--color--bg--light-pink) 50%,
+    var(--color--bg--primary) 50%
+  );
 }
 .content__col--tertiary {
   padding-bottom: 0;
@@ -329,7 +343,7 @@ pre {
   padding-left: 1em;
 }
 .list__item {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 .text--tight {
   margin: 0;
@@ -343,7 +357,7 @@ pre {
   margin-bottom: 0;
 }
 .copyright {
-  font-size: .9em;
+  font-size: 0.9em;
 }
 
 .article {
@@ -363,7 +377,7 @@ pre {
 .article__head-tertiary {
   font-size: 1.3em;
   font-weight: bold;
-  margin: 1.5em 0 .25em;
+  margin: 1.5em 0 0.25em;
 }
 
 .page-title {
@@ -376,17 +390,17 @@ pre {
   margin: 0;
   padding: 0;
 }
-.posts__item  {
+.posts__item {
   margin: 0 0 var(--spacing--container);
   position: relative;
 }
 .posts__item::after {
-  content: '';
-  background-image:
-    linear-gradient(
-      to right, 
-      var(--color--pink-dark), var(--color--bg--lighter-pink)
-    );
+  content: "";
+  background-image: linear-gradient(
+    to right,
+    var(--color--pink-dark),
+    var(--color--bg--lighter-pink)
+  );
   bottom: -1.5em;
   left: 0;
   height: 1px;
@@ -403,7 +417,7 @@ pre {
 .link-home {
   font-size: 2em;
   line-height: 1;
-  background: linear-gradient(90deg,#030202,#a37575);
+  background: linear-gradient(90deg, #030202, #a37575);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -412,7 +426,7 @@ pre {
   text-decoration: none;
 }
 .link-home:focus {
-  background: linear-gradient(90deg,#030202,#a37575);
+  background: linear-gradient(90deg, #030202, #a37575);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -431,17 +445,17 @@ pre {
 }
 
 .has-pullquote:before {
-  background-image:
-    linear-gradient(
-      to top right, 
-      var(--color--bg--light-pink) 50%, var(--color--bg--primary) 50%
-    );
+  background-image: linear-gradient(
+    to top right,
+    var(--color--bg--light-pink) 50%,
+    var(--color--bg--primary) 50%
+  );
   color: var(--color--pink-dark);
   content: attr(data-pullquote);
   display: block;
   font-size: 1.4em;
   margin: 1em auto;
-  padding: .5em;
+  padding: 0.5em;
   position: relative;
   width: 80%;
 }
@@ -449,16 +463,16 @@ pre {
 @media screen and (min-width: 43.75rem) {
   .has-pullquote:before {
     float: right;
-    margin: .2rem 0 1rem 1rem;
+    margin: 0.2rem 0 1rem 1rem;
     min-width: 9.375rem;
     width: 25%;
-  }  
+  }
 }
 
 .skip-link:focus {
   clip: unset;
   width: auto;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
   z-index: 99;
 }
@@ -501,15 +515,15 @@ pre {
   height: 24px;
 }
 .icon-link {
-  padding: 0 .25em;
-  margin: 0 .2em;
+  padding: 0 0.25em;
+  margin: 0 0.2em;
   text-decoration: none;
 }
 
 .horizontal-pink-gradient {
-  background-image:
-    linear-gradient(
-      to right, 
-      var(--color--pink-dark), var(--color--bg--lighter-pink)
-    );
+  background-image: linear-gradient(
+    to right,
+    var(--color--pink-dark),
+    var(--color--bg--lighter-pink)
+  );
 }
