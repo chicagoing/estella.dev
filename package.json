@@ -1,29 +1,31 @@
 {
   "name": "estella.dev",
   "version": "1.0.0",
-  "description": "Personal website",
-  "main": "index.js",
+  "description": "",
+  "main": ".eleventy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "eleventy --serve --watch",
-    "build": "eleventy"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chicagoing/estella.dev.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/chicagoing/estella.dev/issues"
   },
   "homepage": "https://github.com/chicagoing/estella.dev#readme",
-  "devDependencies": {
-    "@11ty/eleventy": "^0.10.0"
-  },
   "dependencies": {
-    "clean-css": "^4.2.3",
-    "html-minifier": "^4.0.0"
+    "@11ty/eleventy": "^3.1.6"
+  },
+  "allowScripts": {
+    "core-js@2.6.12": true,
+    "ejs@2.7.4": true,
+    "fsevents@2.3.3": true,
+    "fsevents@1.2.13": true
+  },
+  "devDependencies": {
+    "lightningcss": "^1.33.0"
   }
 }
